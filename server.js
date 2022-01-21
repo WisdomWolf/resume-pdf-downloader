@@ -34,5 +34,8 @@ app.get('/download', async(req, res) => {
 app.get('*', (req, res) => {
     res.send('Fallback Reached')
 });
-
-app.listen(3000, () => console.log('Example app is listening on port 3000.'));
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, () => console.log('App is listening on port ' + port));
