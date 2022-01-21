@@ -9,6 +9,10 @@ const source_url = "https://raw.githubusercontent.com/WisdomWolf/curriculum_vita
 const pdf_file = `${__dirname}/resume.pdf`;
 const md_file = `${__dirname}/README.md`;
 
+app.get('/', (req, res) => {
+    res.send('Success!')
+});
+
 app.get('/download', async(req, res) => {
     const downloader = new Downloader({
         url: source_url,
@@ -25,6 +29,10 @@ app.get('/download', async(req, res) => {
         console.log("Download failed", error);
     }
     console.log('Conversion completed successfully')
+});
+
+app.get('*', (req, res) => {
+    res.send('Fallback Reached')
 });
 
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));
