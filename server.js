@@ -1,7 +1,7 @@
 const express = require('express');
 const Downloader = require("nodejs-file-downloader");
-var markdownpdf = require("markdown-pdf");
-var fs = require("fs");
+const markdownpdf = require("markdown-pdf");
+const fs = require("fs");
 
 const app = express();
 
@@ -14,8 +14,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/download', async(req, res) => {
+    let url;
+    if (req.query.url) {
+        url = req.query.url;
+        console.log('received url: ' + url);
+    } else {
+        url = source_url;
+    }
+    console.log('url: ' + url);
     const downloader = new Downloader({
-        url: source_url,
+        url: url,
         directory: `${__dirname}`,
         cloneFiles: false, //This will cause the downloader to re-write an existing file.
     });
