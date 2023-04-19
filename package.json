@@ -1,11 +1,13 @@
 {
-  "name": "express-example",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "wise-pdf-downloader",
+  "version": "0.1.0",
+  "description": "Utility for downloading markdown as pdf",
+  "main": "functions/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node server.js"
+    "serve": "node server.js",
+    "build": "netlify-lambda build express",
+    "start": "nodemon server-local.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,9 @@
   "dependencies": {
     "express": "^4.17.2",
     "markdown-pdf": "^10.0.0",
-    "nodejs-file-downloader": "^4.9.2"
+    "netlify-lambda": "^2.0.16",
+    "nodejs-file-downloader": "^4.9.2",
+    "nodemon": "^2.0.22",
+    "serverless-http": "^3.2.0"
   }
 }
