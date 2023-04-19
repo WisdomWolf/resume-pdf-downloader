@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const serverless = require('serverless-http');
 const Downloader = require("nodejs-file-downloader");
-const markdownpdf = require("markdown-pdf");
+const { mdToPdf } = require('md-to-pdf');
 const fs = require("fs");
 
 const app = express();
@@ -27,15 +27,17 @@ router.get('/download', async(req, res) => {
     console.log('url: ' + url);
     const downloader = new Downloader({
         url: url,
-        directory: '/tmp',
+        directory: `/tmp`,
         cloneFiles: false, //This will cause the downloader to re-write an existing file.
     });
     try {
         await downloader.download();
         console.log('Markdown download complete')
-        markdownpdf().from(md_file).to(pdf_file, function () {
-            res.download(pdf_file);
-        });
+        // markdownpdf().from(md_file).to(pdf_file, function () {
+        //     res.download(pdf_file);
+        // });
+        await mdToPdf({ path: md_file}, { dest: pdf_file });
+        res.download(pdf_file);
     } catch (error) {
         console.log("Download failed", error);
     }
