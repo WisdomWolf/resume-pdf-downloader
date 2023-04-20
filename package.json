@@ -16,7 +16,7 @@
     "chrome-launcher": "^0.15.2",
     "chrome-remote-interface": "^0.32.2",
     "express": "^4.17.2",
-    "markdown-pdf": "^11.0.0",
+    "md-to-pdf": "^5.2.4",
     "nodejs-file-downloader": "^4.9.2",
     "pupeteer": "^0.0.1",
     "serverless-http": "^3.2.0"
