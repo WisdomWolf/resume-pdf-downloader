@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2",
-    "md-to-pdf": "^5.2.4",
+    "markdown-pdf": "^11.0.0",
     "nodejs-file-downloader": "^4.9.2",
     "nodemon": "^2.0.22",
     "serverless-http": "^3.2.0"

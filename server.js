@@ -1,6 +1,6 @@
 const express = require('express');
 const Downloader = require("nodejs-file-downloader");
-const { mdToPdf } = require('md-to-pdf');
+const markdownpdf = require("markdown-pdf");
 const fs = require("fs");
 
 const app = express();
@@ -10,7 +10,7 @@ const pdf_file = `/tmp/resume.pdf`;
 const md_file = `/tmp/README.md`;
 
 app.get('/', (req, res) => {
-    res.send('Success!')
+    res.send('Go to /download')
 });
 
 app.get('/download', async(req, res) => {
@@ -30,8 +30,9 @@ app.get('/download', async(req, res) => {
     try {
         await downloader.download();
         console.log('Markdown download complete')
-        await mdToPdf({ path: md_file}, { dest: pdf_file });
-        res.download(pdf_file);
+        markdownpdf().from(md_file).to(pdf_file, function () {
+            res.download(pdf_file);
+        });
     } catch (error) {
         console.log("Download failed", error);
     }
