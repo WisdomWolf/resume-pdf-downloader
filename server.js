@@ -1,6 +1,6 @@
 const express = require('express');
 const Downloader = require("nodejs-file-downloader");
-const markdownpdf = require("markdown-pdf");
+const { mdToPdf } = require('md-to-pdf');
 const fs = require("fs");
 
 const app = express();
