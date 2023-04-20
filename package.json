@@ -2,7 +2,7 @@
   "name": "wise-pdf-downloader",
   "version": "0.1.0",
   "description": "Utility for downloading markdown as pdf",
-  "main": "functions/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node server.js",
