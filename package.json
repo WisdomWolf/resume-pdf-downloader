@@ -13,10 +13,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chrome-launcher": "^0.15.2",
+    "chrome-remote-interface": "^0.32.2",
     "express": "^4.17.2",
     "markdown-pdf": "^11.0.0",
     "nodejs-file-downloader": "^4.9.2",
-    "nodemon": "^2.0.22",
+    "pupeteer": "^0.0.1",
     "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
